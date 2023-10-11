@@ -27,7 +27,11 @@ while token_ptr < len(tokens):
         case "[":
             # skip tokens in loop if current tape byte is zero.
             if tape[tape_ptr] == 0:
-                while tokens[token_ptr] != "]": token_ptr += 1
+                count = 0
+                while tokens[token_ptr] != "]" or count: 
+                    if tokens[token_ptr] == "[": count += 1
+                    elif tokens[token_ptr] == "]": count -= 1
+                    token_ptr += 1
             else:
                 stack.append(token_ptr)
         case "]":
