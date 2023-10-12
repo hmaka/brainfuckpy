@@ -28,6 +28,7 @@
       <input type="text" id="code" placeholder="Paste your brain f*ck code here"/>
       <button id="get-code" py-onClick="get_and_run_code()">Run!</button>
       <div id="display"></div>
+   </div>
       <py-script>
         def get_and_run_code(*args, **kwargs):
           tokens = list(Element("code").value)
@@ -73,7 +74,7 @@
             token_ptr += 1
           Element("display").write(''.join(result)) 
       </py-script>
-    </div>
+ 
   </body>
 </html>
 
