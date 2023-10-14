@@ -26,6 +26,9 @@
     <div class="centered-input">
       <h1>Brain F*ck Interpreter</h1>
       <input type="text" id="code" placeholder="Paste your brain f*ck code here"/>
+      <script>
+        document.getElementById('code').value = '++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.';
+      </script>
       <button id="get-code" py-onClick="get_and_run_code()">Run!</button>
       <div id="display"></div>
    </div>
@@ -33,10 +36,7 @@
         def get_and_run_code(*args, **kwargs):
           tokens = list(Element("code").value)
           result = []
-          # The original spec called for a tape length of 30,000. So we honor that here.
           tape = [0]*30000
-          # We will leverage a stack to deal with loops
-          # The top of the stack will indicate the index in tokens where the loop started
           stack = []
     
           tape_ptr = 0
